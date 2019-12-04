@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <head>
+
+    <body>
+
+        <div class="container-fluid bt ">
+            <div class="row justify-content-md-start justify-content-lg-center" style="background-color:dimgrey ">
+                <!-- <div class="btn-group"> -->
+                <button class="btn btn-default arrow1" style="background-color: #f2f3f3">
+                    <i class="fa fa-code"></i>
+                </button>
+                <div class="btn-group">
+                    <button id="bold" class="btn btn-default"><i class="fa fa-bold"></i></button>
+                    <button id="italic" class="btn btn-default"><i class="fa fa-italic"></i></button>
+                    <button id="under" class="btn btn-default "><i class="fa fa-underline"></i></button>
+                    <button id="cross" class="btn btn-default "> <i class="fa fa-strikethrough"></i> </button>
+                </div>
+                <div class="btn-group btn-group-text-align">
+                    <button id="t_left" class="btn btn-default" data-align="left">
+                        <i class="fa fa-align-left"></i>
+                    </button>
+                    <button id="t_center" class="btn btn-default" data-align="center">
+                        <i class="fa fa-align-center"></i>
+                    </button>
+                    <button id="t_right" class="btn btn-default" data-align="right">
+                        <i class="fa fa-align-right"></i>
+                    </button>
+                </div>
+                <div class="btn-group">
+                    <div class="dropdown">
+                        <button class=" btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-font"></i><span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="fontS">
+                            <li class="dropdown-item font-arial ">Arial</li>
+                            <li class="dropdown-item font-georgia ">Georgia</li>
+                            <li class="dropdown-item font-impact ">Impact</li>
+                            <li class="dropdown-item font-tahoma ">Tahoma</li>
+                            <li class="dropdown-item font-times-new-roman ">Times New Roman</li>
+                            <li class="dropdown-item font-verdana ">Verdana</li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-default  dropdown-toggle " data-toggle="dropdown">
+                            <i class="fa fa-text-height"></i><span class="caret"></span>
+                        </button>
+                        <ul id="size" class="dropdown-menu">
+                            <li class="dropdown-item font_12">12px</li>
+                            <li class="dropdown-item font_14">14px</li>
+                            <li class="dropdown-item font_16">16px</li>
+                            <li class="dropdown-item font_18">18px</li>
+                            <li class="dropdown-item font_20">20px</li>
+                            <li class="dropdown-item font_22">22px</li>
+                            <li class="dropdown-item font_25">25px</li>
+                            <li class="dropdown-item font_30">30px</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-default  col_t " data-toggle="modal" data-target="#color_text">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <button class="btn btn-default " data-toggle="modal" data-target="#color_bg_img"><i
+                            class="far fa-image"></i></button>
+                </div>
+                <div class="btn-group  sig ">
+                    <button class="btn btn-default" id="btn-sign" data-toggle="modal" data-target="#sign-in-modal">
+                        <i class="fas fa-lock-open"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal for registation ----------------------------------------------------------------------- -->
+        <div id="sign-in-modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static"
+            data-keyboard="false" data-toggle="modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title  mx-auto ">Sign In</h4>
+                    </div>
+                    <div class="modal-body  ">
+                        <form id="reg">
+                            <div class="form-group">
+                                <input type="text" class="form-control  " id="email" placeholder="Email here...">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control  " id="pwd" placeholder="Password here...">
+                            </div>
+                            <p class="empty">Value is empty</p>
+                            <p class='check_pl'>Please check your login or password</p>
+                            <button type="button" class="btn btn-secondary btn-block sign ">Sign in</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- box with colors boxes =================================================== -->
+        <div id="color_text" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title  ">Choose text color</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body  color_text_inside  ">
+                        <div class="over_colors" data-color="color">
+                            <div class="colors"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- choose background-color or image ========================-->
+        <div id="color_bg_img" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title  ">Choose background color or image</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="btn-group ">
+                        <button class="btn  btn-light btn_show_color ">Color</button>
+                        <button class="btn btn-light  btn_show_image ">Image</button>
+                        <button class="btn btn-light  btn_show_file ">Files</button>
+                    </div>
+                    <div class="modal-body ">
+                        <div class="over_colors_2" data-color="background">
+                            <div class="colors"></div>
+                        </div>
+                        <div class="over_image">
+                            <div class="imag"></div>
+                        </div>
+                        <div class="over_files">
+                            <div class="files">
+                                <form class=" f1" name="f1">
+                                    <div class="custom-file">
+                                        <input type="file" name="file" class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================== main block with text =======================================-->
+        <div class="container-fluid main_box pt-3 ">
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit praesentium.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit praesentium.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit praesentium.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit praesentium.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit praesentium.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit praesentium.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit praesentium.</p>
+
+        </div>
+        <div class="hid"></div>
+        <!--===================== textarea  ===========================================-->
+        <div class="container-fluid down ">
+            <div class="row" style="background-color:dimgrey ">
+
+                <div class="btn-group " id="btn_back">
+                    <button id="page_back" class="btn btn-default"><i class="fas fa-save"></i></button>
+                    <button id="icon_creat_table" data-toggle="modal" data-target="#create_table"
+                        class="btn btn-default"><i class='fas fa-table'></i></button>
+                    <button id="oi" class="btn btn-default " data-toggle="modal" data-target="#myModal"><i
+                            class='fas fa-list-ul'></i></button>
+                    <button id="ui" class="btn btn-default " data-toggle="modal" data-target="#myModa"> <i
+                            class='fas fa-list-ol'></i> </button>
+                </div>
+            </div>
+            <div class="area">
+                <textarea id="area" name="" cols="40" rows="40">
+    </textarea>
+            </div>
+        </div>
+
+
+        <!-- modal window with create table =============================================-->
+        <div id="create_table" class="modal fade">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"> Create Table </h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+
+                        <form name="f2" id="f2">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label>Countr TR:</label>
+                                    <input type="text" class="form-control  count_tr num" placeholder="Type here..">
+                                </div>
+                                <div class="col">
+                                    <label>Countr TD:</label>
+                                    <input type="text" class="form-control  count_td num" placeholder="Type here...">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <label>Width of TD:</label>
+                                    <input type="text" class="form-control  width_td num" placeholder="Type here..">
+                                </div>
+                                <div class="col">
+                                    <label>Height of TD:</label>
+                                    <input type="text" class="form-control  height_td num" placeholder="Type here...">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-6 col ">
+                                    <label>Width of border:</label>
+                                    <input type="text" class="form-control num" placeholder="Type here..">
+                                </div>
+
+                                <div class="form-group col ">
+                                    <label for="exampleFormControlSelect1">Style of border</label>
+                                    <select class="form-control  type_border  " id="exampleFormControlSelect1"
+                                        placeholder="asd">
+                                        <option value="choose style">Choose style</option>
+                                        <option value="dotted">dotted</option>
+                                        <option value="dashed">dashed</option>
+                                        <option value="solid">solid</option>
+                                        <option value="double">double</option>
+                                        <option value="groove">groove</option>
+                                        <option value="ridge">ridge</option>
+                                        <option value="inset">inset</option>
+                                        <option value="outset">outset</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col ">
+                                    <label for="exampleFormControlSelect1">Color of border:</label>
+                                    <select class="form-control  color_border " id="exampleFormControlSelect1">
+                                        <option value="choose color">choose color</option>
+                                        <option value="red">red</option>
+                                        <option value="blue">blue</option>
+                                        <option value="brown">brown</option>
+                                        <option value="grey">grey</option>
+                                        <option value="yellow">yellow</option>
+                                        <option value="black">black</option>
+                                        <option value="pink">pink</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- </form> </div> -->
+
+                            <p class="valid_val">invalid value</p>
+                            <div class="modal-footer">
+                                <button type="button" style="width: 50%" class="btn btn-danger  reset ">Reset</button>
+                                <button type="button" style="width: 50%" class="btn btn-success createTable">Create
+                                    table</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--========================== modal window for Ol================================= -->
+
+        <div class="modal fade " id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Create OI</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+
+                        <form name="f4" id="f4">
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Count li item:</label>
+                                <input type="text" class="form-control count_li_OI num1" id="formGroupExampleInput"
+                                    placeholder="Type here..">
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">Type mark of list:</label>
+                                <select class="form-control  type_marks_oi " id="exampleFormControlSelect1">
+                                    <option value="choose OI type mark">choose OI type mark</option>
+                                    <option value="decimal">1</option>
+                                    <option value="upper-alpha">A</option>
+                                    <option value="lower-roman">i</option>
+                                    <option value="lower-alpha">a</option>
+                                </select>
+                            </div>
+                            <!-- </form> -->
+                    </div>
+                    <p class="valid_val">invalid value</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger  reset1 " style="width: 50%">Reset</button>
+                        <button type="button" class="btn btn-success createList" onclick="crListOl()"
+                            style="width: 50%">Create list</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--========================== modal window for UI================================= -->
+        <div class="modal fade " id="myModa">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Create UI</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+
+                        <form name="f3" id="f3">
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Count li item:</label>
+                                <input type="text" class="form-control  count_li num2" id="formGroupExampleInput"
+                                    placeholder="Type here..">
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">Type mark of list:</label>
+                                <select class="form-control   type_marks " id="exampleFormControlSelect1">
+                                    <option value="choose UI type mark">choose UI type mark</option>
+                                    <option value="circle">circle</option>
+                                    <option value="disc">disc</option>
+                                    <option value="square">square</option>
+
+                                </select>
+                            </div>
+                            <!-- </form> -->
+                    </div>
+                    <p class="valid_val">invalid value</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger  reset2 " style="width: 50%">Reset</button>
+                        <button type="button" class="btn btn-success createUl" onclick="crListUl()"
+                            style="width: 50%">Create list</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+
+</html>
